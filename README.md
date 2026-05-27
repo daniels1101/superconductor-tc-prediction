@@ -1,9 +1,6 @@
 # Superconductor Tc Prediction
 
-Machine learning pipeline to predict the critical temperature $T_c$ of
-superconductors from elemental features. The trained model is then applied
-to a proposed A15-structured vanadium phase and used to investigate how
-elemental substitution affects the predicted $T_c$.
+Machine learning pipeline to predict the critical temperature $T_c$ of superconductors from elemental features. The trained model is then applied to a proposed A15-structured vanadium phase and used to investigate how elemental substitution affects the predicted $T_c$.
 
 ---
 
@@ -22,22 +19,18 @@ elemental substitution affects the predicted $T_c$.
 | V₀.₉₈Zr₀.₀₂ A15 | 8.19 K | This model |
 | Experimental observation | ~15 K | Magnetization measurement |
 
-The model correctly captures the direction of the trend. The gap between
-8.19 K and 15 K is the structural Tc enhancement from the A15 crystal
-geometry — an effect no elemental model can recover.
+The model correctly captures the direction of the trend. The gap between 8.19 K and 15 K is the structural Tc enhancement from the A15 crystal geometry, an effect no elemental model can recover.
 
 ---
 
 ## Dataset
 
-Hamidieh (2018) superconductor dataset from the
-[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/464/superconductivty+data)
-(ID 464).
+Hamidieh (2018) superconductor dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/464/superconductivty+data) (ID 464).
 
 - 21,263 superconductors
 - 81 features derived from elemental properties
 - Target variable: critical temperature in Kelvin
-- Fetched directly via `ucimlrepo` — no manual download required
+- Fetched directly via `ucimlrepo` no manual download required
 
 ---
 
@@ -61,26 +54,13 @@ Hamidieh (2018) superconductor dataset from the
 
 ## Key findings
 
-**Thermal conductivity dominates.** The top two features account for over
-66% of predictive power. This is physically meaningful: in BCS theory,
-superconductivity arises from electron-phonon coupling, and thermal
-conductivity reflects how phonons propagate through the lattice.
+**Thermal conductivity dominates.** The top two features account for over 66% of predictive power. This is physically meaningful: in BCS theory, superconductivity arises from electron-phonon coupling, and thermal conductivity reflects how phonons propagate through the lattice.
 
-**Elemental models cannot distinguish polymorphs.** Pure A15 V and BCC V
-have identical feature vectors. The Tc enhancement from 5.4 K to ~15 K
-in the A15 structure is driven by crystal geometry — enhanced electron
-density of states at the Fermi level and stronger electron-phonon coupling
-— none of which are captured by elemental averages.
+**Elemental models cannot distinguish polymorphs.** Pure A15 V and BCC V have identical feature vectors. The Tc enhancement from 5.4 K to ~15 K in the A15 structure is driven by crystal geometry, enhanced electron density of states at the Fermi level and stronger electron-phonon coupling, none of which are captured by elemental averages.
 
-**Zr substitution raises the prediction but hits a ceiling.** Introducing
-2 at% Zr activates variance features that are zero for pure V, pushing
-the prediction from 4.36 K to 8.19 K. Adding more Zr past ~5% does not
-help further.
+**Zr substitution raises the prediction but hits a ceiling.** Introducing 2 at% Zr activates variance features that are zero for pure V, pushing the prediction from 4.36 K to 8.19 K. Adding more Zr past ~5% does not help further.
 
-**Oxygen substitution is worth investigating.** The model predicts even
-small O content pushes Tc meaningfully above the Zr ceiling. Whether
-trace oxygen is substituting into the A15 phase rather than forming a
-separate oxide is an open experimental question.
+**Oxygen substitution is worth investigating.** The model predicts even small O content pushes Tc meaningfully above the Zr ceiling. Whether trace oxygen is substituting into the A15 phase rather than forming a separate oxide is an open experimental question.
 
 ---
 
@@ -114,6 +94,4 @@ pip install pandas numpy matplotlib scikit-learn ucimlrepo
 
 ## Acknowledgments
 
-Dataset: K. Hamidieh, "A data-driven statistical model for predicting the
-critical temperature of a superconductor," *Computational Materials Science*,
-2018. UCI ML Repository ID 464.
+Dataset: K. Hamidieh, "A data-driven statistical model for predicting the critical temperature of a superconductor," *Computational Materials Science*, 2018. UCI ML Repository ID 464.
