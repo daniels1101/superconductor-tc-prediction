@@ -68,7 +68,7 @@ Hamidieh (2018) superconductor dataset from the [UCI Machine Learning Repository
 
 - Structural descriptors such as lattice parameters, space group encoding,
   or bond lengths are required to distinguish polymorphs of the same element
-- Phase stability is not modeled — predictions at high substitution fractions
+- Phase stability is not modeled, predictions at high substitution fractions
   are extrapolations
 - The model struggles above 125 K where cuprate physics departs from BCS theory
 - A next step would be SHAP-based inverse analysis for a more rigorous
